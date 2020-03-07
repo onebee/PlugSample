@@ -1,6 +1,6 @@
 package com.one.stander;
 
-import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
@@ -11,10 +11,10 @@ public interface ServiceInterface {
 
     /**
      * 把宿主的环境 给插件
-     * @param activity
+     * @param appService
      */
-    void insertAppContext(Activity activity);
-    
+    void insertAppContext(Service appService);
+
     void onCreate();
     int onStartCommand(Intent intent, int flags, int startId);
     IBinder onBind(Intent intent);

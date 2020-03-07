@@ -1,6 +1,6 @@
 package com.one.plug_package;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -14,11 +14,11 @@ import androidx.annotation.Nullable;
  */
 public class BaseService extends Service implements ServiceInterface {
 
-    public Activity mActivity;
+    public Service appService;
 
     @Override
-    public void insertAppContext(Activity activity){
-        this.mActivity = activity;
+    public void insertAppContext(Service appService) {
+        this.appService = appService;
     }
 
 
@@ -28,9 +28,10 @@ public class BaseService extends Service implements ServiceInterface {
     }
 
 
+    @SuppressLint("WrongConstant")
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent,flags,startId );
+        return 0;
     }
 
     @Override

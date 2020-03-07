@@ -1,6 +1,7 @@
 package com.one.plug;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -73,4 +74,14 @@ public class ProxyActivity extends Activity {
         super.startActivity(proxyIntent);
 
     }
+
+    @Override
+    public ComponentName startService(Intent service) {
+
+        String className = service.getStringExtra("className");
+        Intent intent = new Intent(this, ProxyService.class);
+        intent.putExtra("className", className);
+        return super.startService(intent);
+    }
+
 }

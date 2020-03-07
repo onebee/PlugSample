@@ -2,6 +2,7 @@ package com.one.plug_package;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -59,8 +60,14 @@ public class BaseActivity extends Activity implements ActivityInterface {
     @Override
     public void startActivity(Intent intent) {
         Intent intentNew = new Intent();
-        intentNew.putExtra("className",intent.getComponent().getClassName());
+        intentNew.putExtra("className",intent.getComponent().getClassName()); // TestActivity 全类名
         appActivity.startActivity(intentNew);
     }
 
+    @Override
+    public ComponentName startService(Intent service) {
+        Intent intentNew = new Intent();
+        intentNew.putExtra("className", service.getComponent().getClassName()); // TestService 全类名
+        return appActivity.startService(intentNew);
+    }
 }

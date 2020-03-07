@@ -25,10 +25,11 @@ public class TestService extends BaseService {
                 while (true) {
                     try {
                         Thread.sleep(1000);
+                        Log.d(TAG,"  插件里面的服务  正在执行中....");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }finally {
-                        Log.d(TAG,"  插件里面的服务  正在执行中....");
+//                        Log.d(TAG,"  插件里面的服务  正在执行中....");
                     }
                 }
 

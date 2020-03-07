@@ -25,6 +25,8 @@ public class PlugActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
+                startService(new Intent(appActivity, TestService.class));
+
             }
         });
     }

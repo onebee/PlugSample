@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
+import com.one.stander.ServiceInterface;
+
 import androidx.annotation.Nullable;
 
 /**
@@ -20,6 +22,22 @@ public class ProxyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        try {
+            String className = intent.getStringExtra("className");
+            Class clazz = PluginManager.getInstance(this).getClassLoader().loadClass(className);
+
+            Object mTestService = clazz.newInstance();
+
+            ServiceInterface serviceInterface = (ServiceInterface)mTestService;
+
+            // 注入组件环境
+            serviceInterface.insertAppContext(this );
+
+            serviceInterface.onStartCommand(intent, flags, startId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 
