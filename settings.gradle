@@ -1,0 +1,4 @@
+rootProject.name='PlugSample'
+include ':app'
+include ':stander'
+include ':plug_package'
