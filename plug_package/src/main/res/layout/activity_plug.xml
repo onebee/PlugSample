@@ -33,9 +33,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="启动插件里面的Service"
+        android:text="插件里面内部启动Service"
         android:id="@+id/btn_startService"
         />
 
 
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="插件内部注册广播接收者"
+    android:id="@+id/btn_register_receiver"
+    />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="插件内部发送广播"
+        android:id="@+id/btn_send_receiver"
+        />
 </LinearLayout>

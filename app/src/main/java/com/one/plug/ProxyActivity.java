@@ -1,8 +1,10 @@
 package com.one.plug;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 
@@ -84,4 +86,22 @@ public class ProxyActivity extends Activity {
         return super.startService(intent);
     }
 
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+
+        /**
+         * MyReceiver 的全类名
+         */
+        String pluginMyReceiverClassName = receiver.getClass().getName();
+
+        // 在宿主注册广播
+        return super.registerReceiver(new ProxyReceiver(pluginMyReceiverClassName), filter);
+    }
+
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        super.sendBroadcast(intent);
+
+    }
 }
