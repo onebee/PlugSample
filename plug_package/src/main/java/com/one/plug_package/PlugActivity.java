@@ -20,6 +20,13 @@ public class PlugActivity extends BaseActivity {
                 startActivity(new Intent(appActivity,TestActivity.class));
             }
         });
+
+        findViewById(R.id.btn_startService).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 

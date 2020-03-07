@@ -30,4 +30,12 @@
         android:id="@+id/btn_startActivity"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动插件里面的Service"
+        android:id="@+id/btn_startService"
+        />
+
+
 </LinearLayout>
