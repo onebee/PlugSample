@@ -52,7 +52,7 @@ public class PluginManager {
         try {
             File file = new File(Environment.getExternalStorageDirectory() + File.separator + "p.apk");
             if (!file.exists()) {
-                Log.d(TAG, "插件包 不存在...");
+                Log.e(TAG, "插件包 不存在...");
                 return;
             }
 
@@ -65,7 +65,7 @@ public class PluginManager {
              * 加载插件里面 的class
              */
             // Activity class
-            mDexClassLoader = new DexClassLoader(pluginPath, fileDir.getAbsolutePath(), null, null);
+            mDexClassLoader = new DexClassLoader(pluginPath, fileDir.getAbsolutePath(), null, mContext.getClassLoader());
 
 
             /**
@@ -73,13 +73,14 @@ public class PluginManager {
              */
             AssetManager assetManager = AssetManager.class.newInstance();
 
+
             /**
              * 要执行 此方法,为了把插件包的路径 添加进去
              * public final int addAssetPath(String path)
              */
-            Method addAssetPathMethod = assetManager.getClass().getMethod("addAssetPath", String.class);// 他的类型是String
+            Method addAssetPathMethod = assetManager.getClass().getMethod("addAssetPath", String.class); // 他是类类型 Class
 
-            addAssetPathMethod.invoke(addAssetPathMethod, pluginPath);
+            addAssetPathMethod.invoke(assetManager, pluginPath); // 插件包的路径
 
             Resources r = mContext.getResources(); // 宿主的资源配置信息
 

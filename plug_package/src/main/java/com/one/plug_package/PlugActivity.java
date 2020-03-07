@@ -10,7 +10,7 @@ public class PlugActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plug);
 
-        Toast.makeText(this, "我是插件", Toast.LENGTH_SHORT).show();
+        Toast.makeText(appActivity, "我是插件", Toast.LENGTH_SHORT).show();
     }
 
 }

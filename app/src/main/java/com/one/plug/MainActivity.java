@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.view.View;
 
 import java.io.File;
+import java.util.Objects;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // 获取插件包 里面的Activity
         PackageManager packageManager = getPackageManager();
         PackageInfo packageInfo = packageManager.getPackageArchiveInfo(path, PackageManager.GET_ACTIVITIES);
-        ActivityInfo activityInfo = packageInfo.activities[0];
+        ActivityInfo activityInfo = Objects.requireNonNull(packageInfo).activities[0];
 
 
 

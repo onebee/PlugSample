@@ -44,4 +44,10 @@ public class BaseActivity extends Activity implements ActivityInterface {
     public void onDestroy() {
 
     }
+
+    public void setContentView(int resId){
+        appActivity.setContentView(resId);
+
+    }
+
 }

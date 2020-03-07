@@ -34,7 +34,7 @@ public class ProxyActivity extends Activity {
 
 
         // 真正的加载 插件里面 的Activity
-        String className = getIntent().getStringExtra("activityName");
+        String className = getIntent().getStringExtra("className");
 
         try {
             Class mPluginActivityClass = getClassLoader().loadClass(className);
@@ -45,9 +45,16 @@ public class ProxyActivity extends Activity {
 
             ActivityInterface activityInterface = (ActivityInterface)mPluginActivity;
 
-
             // 注入
             activityInterface.insertAppContext(this);
+
+            Bundle bundle = new Bundle();
+            bundle.putString("appName","我是宿主传递过来的信息");
+
+            // 执行插件里面的onCreate的方法
+            activityInterface.onCreate(bundle);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
