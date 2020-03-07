@@ -16,9 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity android:name=".TestActivity" />-->
+        <!--        <activity android:name=".TestActivity" />-->
 
-<!--        在插件里面不用配置Activity , 没有安装-->
+        <!--        在插件里面不用配置Activity , 没有安装-->
+
+
+        <!--        静态注册的广播-->
+        <receiver android:name=".StaticReceiver">
+
+            <intent-filter>
+
+                <action android:name="plug.static_receiver">
+
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -28,9 +28,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="加载插件里面的静态广播接收者，然后注册"
+        android:onClick="loadStaticReceiver"
+        />
 
-        android:onClick="startPluginActivity"
-        android:text="启动插件里面的Activity"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送给静态广播接收者"
+        android:onClick="sendStaticReceiver"
         />
 
 </LinearLayout>
