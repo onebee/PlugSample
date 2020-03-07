@@ -1,15 +1,16 @@
 package com.one.plug_package;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class PlugActivity extends AppCompatActivity {
+public class PlugActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plug);
+
+        Toast.makeText(this, "我是插件", Toast.LENGTH_SHORT).show();
     }
 
 }
